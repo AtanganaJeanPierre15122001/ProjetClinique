@@ -1,5 +1,7 @@
 package Models;
 
+
+
 public class Medecin {
 
     private String Id_Medecin;
@@ -9,6 +11,7 @@ public class Medecin {
     private String Prenom_Medecin;
 
     private String Titre_Medecin;
+
 
 
     public Medecin(String id_Medecin, String nom_Medecin, String prenom_Medecin, String titre_Medecin) {
@@ -21,6 +24,7 @@ public class Medecin {
     public String getId_Medecin() {
         return Id_Medecin;
     }
+
 
     public void setId_Medecin(String id_Medecin) {
         Id_Medecin = id_Medecin;

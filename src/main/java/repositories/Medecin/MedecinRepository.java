@@ -1,17 +1,28 @@
 package repositories.Medecin;
 
+
+
+
 import Models.Medecin;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface MedecinRepository {
-    void saveMedecin(Medecin medecin);
+    int saveMedecin( Medecin medecin);
+
+
 
     List<Medecin> getMedecin();
 
-    void updateMedecin(Medecin medecin);
-
-    void deleteMedecin(Medecin medecin);
 
 
+    int updateMedecin(Medecin medecin);
+
+
+
+    int deleteMedecin(String id);
+
+
+    Medecin getMedecinId(String id) throws SQLException;
 }

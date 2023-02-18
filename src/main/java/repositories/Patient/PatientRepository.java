@@ -1,6 +1,8 @@
 package repositories.Patient;
 
 
+
+
 import Models.Patient;
 
 import java.util.List;
@@ -13,5 +15,5 @@ public interface PatientRepository {
 
     void updatePatient(Patient patient);
 
-    void deletePatient(Patient patient );
+    void deletePatient( Patient patient);
 }

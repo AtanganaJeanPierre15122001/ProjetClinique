@@ -15,7 +15,8 @@ public class HelloApplication extends Application {
 
        /* scene.getStylesheets().add(getClass().getResource("Boostrap3.css").toExternalForm());
         scene.getStylesheets().add(getClass().getResource("Darktheme.css").toExternalForm());*/
-        stage.setTitle("Hello2!");
+        stage.setTitle("Liste Medecin");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
