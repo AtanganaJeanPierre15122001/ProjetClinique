@@ -2,17 +2,16 @@ package Models;
 
 public class Examen {
 
+
+
     private String Id_Examen;
 
-    private String Motif;
+    private String Nom_Exa;
 
 
-
-    public Examen(String id_Examen, String motif){
-
-        this.Id_Examen=id_Examen;
-        this.Motif=motif;
-
+    public Examen(String id_Examen, String nom_Exa) {
+        Id_Examen = id_Examen;
+        Nom_Exa = nom_Exa;
     }
 
     public String getId_Examen() {
@@ -23,12 +22,11 @@ public class Examen {
         Id_Examen = id_Examen;
     }
 
-    public String getMotif() {
-        return Motif;
+    public String getNom_Exa() {
+        return Nom_Exa;
     }
 
-    public void setMotif(String motif) {
-        Motif = motif;
+    public void setNom_Exa(String nom_Exa) {
+        Nom_Exa = nom_Exa;
     }
-
 }

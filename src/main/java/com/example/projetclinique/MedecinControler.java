@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -26,10 +23,22 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class MedecinControler {
+public class MedecinControler implements Initializable {
 
     @FXML
     private Button Editer_Medecin;
+
+    @FXML
+    private Button AcceuilButt;
+
+    @FXML
+    private SeparatorMenuItem PatButt;
+
+    @FXML
+    private SeparatorMenuItem Exam_butt;
+
+
+
 
     @FXML
     private Button Enregistrer_Medecin;
@@ -67,6 +76,9 @@ public class MedecinControler {
     private Button Supprimer_Medecin;
 
     @FXML
+    private Button VoirPatient;
+
+    @FXML
     private Label Titre_Medecin;
 
     @FXML
@@ -81,17 +93,35 @@ public class MedecinControler {
         return this.prenom;
     }
 
-
-    /*public void initialize(URL url, ResourceBundle resourceBundle) {
-        nom.setCellValueFactory(new PropertyValueFactory<Medecin, String>("Nom"));
-        prenom.setCellValueFactory(new PropertyValueFactory<Medecin, String >("Prenom"));
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        nom.setCellValueFactory(new PropertyValueFactory<>("Nom_Medecin"));
+        prenom.setCellValueFactory(new PropertyValueFactory<>("Prenom_Medecin"));
+        ident.setCellValueFactory(new PropertyValueFactory<>("Id_Medecin"));
+        titre.setCellValueFactory(new PropertyValueFactory<>("Titre_Medecin"));
         ListeMedecin.setEditable(true);
         ListeMedecin.setItems(medecins);
-
-    }*/
+0
+    }
 
     @FXML
     void Edit_Med(ActionEvent event) {
+
+    }
+    @FXML
+    void Acceuil(ActionEvent event) throws IOException {
+        FXMLLoader pageAccueil= new FXMLLoader(MedecinControler.class.getResource("Acceuil.fxml"));
+        Scene accueil= new Scene(pageAccueil.load(), 1200, 800);
+        Stage stage= (Stage) AcceuilButt.getScene().getWindow();
+        stage.setScene(accueil);
+        stage.setTitle("ACCUEIL");
+        stage.setResizable(false);
+        stage.show();
+
+    }
+
+    @FXML
+    void VoirExamen(ActionEvent event) {
 
     }
    @FXML
@@ -109,6 +139,17 @@ public class MedecinControler {
         dialogStage.showAndWait();
     }
 
+    @FXML
+    void VoirPatient(ActionEvent event) throws IOException {
+        FXMLLoader pageAccueil= new FXMLLoader(MedecinControler.class.getResource("ListePatient.fxml"));
+        Scene accueil= new Scene(pageAccueil.load(), 1200, 800);
+        Stage stage= (Stage) VoirPatient.getScene().getWindow();
+        stage.setScene(accueil);
+        stage.setTitle("ACCUEIL");
+        stage.setResizable(false);
+        stage.show();
+
+    }
     @FXML
     void Enreg_Med(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -151,7 +192,6 @@ public class MedecinControler {
                 String nom= result1.getString(MedecinContract.NOM_MEDECIN_FIELD_NAME).trim();
                 String prenom= result1.getString(MedecinContract.PRENOM_MEDECIN_FIELD_NAME).trim();
                 String titre= result1.getString(MedecinContract.TITRE_MEDECIN_FIELD_NAME).trim();
-
                 medecins.add(new Medecin(Id,nom,prenom,titre));
                 /*medecins.add(new Medecin("1541","fdfdfdfdf","Kmkmkkmk","doc"));*/
 

@@ -42,6 +42,8 @@ public class EnregistreMedecinControler {
 
     }
 
+
+
     @FXML
     void Valider(ActionEvent event) {
         String Id_M=Id_Med.getText();
